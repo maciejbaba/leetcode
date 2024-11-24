@@ -7,6 +7,8 @@ var myAtoi = function (s) {
   let result = 0;
   let sign = 1;
   let index = 0;
+  const CUSTOM_MAX_INT = 2 ** 31 - 1;
+  const CUSTOM_MIN_INT = 2 ** 31 * -1;
 
   while (s[index] === " ") {
     index++; // skip whitespace
@@ -23,5 +25,15 @@ var myAtoi = function (s) {
     index++;
   }
 
-  return result * sign;
+  result = result * sign;
+
+  if (result > CUSTOM_MAX_INT) {
+    return CUSTOM_MAX_INT;
+  }
+
+  if (result < CUSTOM_MIN_INT) {
+    return CUSTOM_MIN_INT;
+  }
+
+  return result;
 };
