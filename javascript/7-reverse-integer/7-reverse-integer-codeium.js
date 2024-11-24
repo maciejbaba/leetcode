@@ -20,5 +20,15 @@ var reverse = function (x) {
     result = result * 10 + (x % 10);
     x = Math.floor(x / 10);
   }
-  return result * sign;
+
+  result = result * sign;
+
+  if (result > CUSTOM_MAX_INT) {
+    return 0;
+  }
+
+  if (result < CUSTOM_MIN_INT) {
+    return 0;
+  }
+  return result;
 };
